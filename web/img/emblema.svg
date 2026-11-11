@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <g fill="#FFCC00" stroke="#FFCC00" stroke-linecap="round" stroke-linejoin="round" transform="translate(10 14)">
+    <!-- foice: lâmina -->
+    <path stroke="none" d="M245.7 92.1 A140 140 0 1 1 148.8 300 L186 270 A98 98 0 1 0 245.7 92.1 Z"/>
+    <!-- foice: cabo -->
+    <line x1="166" y1="287" x2="116" y2="374" stroke-width="36"/>
+    <circle cx="170" cy="282" r="22" stroke="none"/>
+    <!-- martelo: cabo -->
+    <line x1="388" y1="398" x2="214" y2="182" stroke-width="32"/>
+    <!-- martelo: cabeça -->
+    <rect x="-82" y="-32" width="164" height="64" rx="6" stroke="none" transform="translate(200 165) rotate(-39)"/>
+  </g>
+</svg>
