@@ -1,6 +1,6 @@
 /* Service worker: deixa o "casco" do app e o catálogo disponíveis offline. */
-const VERSAO = 'lm-v1';
-const CASCO = ['./', 'index.html', 'css/app.css', 'js/config.js', 'js/app.js', 'data/catalog.json',
+const VERSAO = 'lm-v2';
+const CASCO = ['./', 'index.html', 'css/app.css', 'js/config.js', 'js/app.js', 'js/instalar.js', 'data/catalog.json',
   'img/emblema.svg', 'img/icone.svg', 'img/icone-192.png', 'img/icone-512.png', 'img/pix.png', 'manifest.webmanifest'];
 
 self.addEventListener('install', e => {
