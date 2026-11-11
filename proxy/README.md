@@ -1,7 +1,7 @@
 # Proxy CORS (Cloudflare Workers)
 
 O marxists.org não permite que páginas de outros sites leiam seus textos pelo navegador (CORS).
-Este Worker repassa **apenas** `https://www.marxists.org/portugues/*` e adiciona os cabeçalhos necessários.
+Este Worker repassa **apenas** `https://www.marxists.org/*` e adiciona os cabeçalhos necessários.
 É grátis (100 mil requisições/dia).
 
 ## Publicar

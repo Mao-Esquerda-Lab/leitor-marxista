@@ -13,18 +13,21 @@
   <link rel="icon" href="img/icone.svg">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/app.css">
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
 </head>
 <body>
   <header id="topo">
-    <button id="voltar" class="icone-btn" aria-label="Voltar" hidden>
+    <button id="voltar" class="icone-btn" data-t-aria="voltar" hidden>
       <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></svg>
     </button>
     <img src="img/emblema.svg" alt="" class="logo" id="logo">
-    <h1 id="titulo">Leitor Marxista</h1>
-    <button id="btn-fav" class="icone-btn" aria-label="Favoritar" hidden>
+    <h1 id="titulo"></h1>
+    <button id="btn-fav" class="icone-btn" data-t-aria="favoritar" hidden>
       <svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" /></svg>
     </button>
-    <button id="btn-aparencia" class="icone-btn texto-btn" aria-label="Aparência do texto">Aa</button>
+    <button id="btn-idioma" class="icone-btn texto-btn" data-t-aria="idioma"></button>
+    <button id="btn-aparencia" class="icone-btn texto-btn" data-t-aria="aparencia">Aa</button>
   </header>
 
   <div id="progresso"><div></div></div>
@@ -32,21 +35,21 @@
   <main id="conteudo" tabindex="-1"></main>
 
   <nav id="abas">
-    <a href="#/" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg><span>Início</span></a>
-    <a href="#/autores" data-aba="autores"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>Autores</span></a>
-    <a href="#/paises" data-aba="paises"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>Países</span></a>
-    <a href="#/temas" data-aba="temas"><svg viewBox="0 0 24 24"><path d="M5 4h6v16H5zM13 4h6v16h-6z"/></svg><span>Temas</span></a>
-    <a href="#/figuras" data-aba="figuras"><svg viewBox="0 0 24 24"><path d="M6 3h11a1 1 0 0 1 1 1v17l-6-3-6 3z"/></svg><span>Figuras</span></a>
-    <a href="#/apoie" data-aba="apoie"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Apoie</span></a>
+    <a href="#/" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg><span data-t="abaInicio"></span></a>
+    <a href="#/autores" data-aba="autores"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span data-t="abaAutores"></span></a>
+    <a href="#/paises" data-aba="paises"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-t="abaPaises"></span></a>
+    <a href="#/temas" data-aba="temas"><svg viewBox="0 0 24 24"><path d="M5 4h6v16H5zM13 4h6v16h-6z"/></svg><span data-t="abaTemas"></span></a>
+    <a href="#/figuras" data-aba="figuras"><svg viewBox="0 0 24 24"><path d="M6 3h11a1 1 0 0 1 1 1v17l-6-3-6 3z"/></svg><span data-t="abaFiguras"></span></a>
+    <a href="#/apoie" data-aba="apoie"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span data-t="abaApoie"></span></a>
   </nav>
 
   <!-- Painel de aparência do texto -->
   <div id="painel-fundo" hidden></div>
-  <section id="painel" hidden aria-label="Aparência do texto">
+  <section id="painel" hidden>
     <div class="painel-alca"></div>
-    <h2>Aparência do texto</h2>
+    <h2 data-t="aparencia"></h2>
 
-    <label class="campo">Tamanho da letra <output id="v-tamanho"></output>
+    <label class="campo"><span data-t="tamanho"></span> <output id="v-tamanho"></output>
       <div class="linha-ctrl">
         <button class="mini" data-passo="tamanho" data-d="-1">A−</button>
         <input type="range" id="tamanho" min="13" max="34" step="1">
@@ -54,40 +57,39 @@
       </div>
     </label>
 
-    <div class="campo">Fonte
+    <div class="campo"><span data-t="fonte"></span>
       <div class="opcoes" id="fontes"></div>
     </div>
 
-    <div class="campo">Cores
+    <div class="campo"><span data-t="cores"></span>
       <div class="opcoes" id="temas-cor"></div>
       <div class="linha-ctrl cores-livres">
-        <label>Texto <input type="color" id="cor-texto"></label>
-        <label>Fundo <input type="color" id="cor-fundo"></label>
-        <label>Links <input type="color" id="cor-link"></label>
+        <label><span data-t="corTexto"></span> <input type="color" id="cor-texto"></label>
+        <label><span data-t="corFundo"></span> <input type="color" id="cor-fundo"></label>
+        <label><span data-t="corLink"></span> <input type="color" id="cor-link"></label>
       </div>
     </div>
 
-    <label class="campo">Espaço entre linhas <output id="v-entrelinha"></output>
+    <label class="campo"><span data-t="entrelinha"></span> <output id="v-entrelinha"></output>
       <input type="range" id="entrelinha" min="1.2" max="2.4" step="0.1">
     </label>
 
-    <label class="campo">Margens <output id="v-margem"></output>
+    <label class="campo"><span data-t="margens"></span> <output id="v-margem"></output>
       <input type="range" id="margem" min="8" max="48" step="2">
     </label>
 
-    <div class="campo">Alinhamento
+    <div class="campo"><span data-t="alinhamento"></span>
       <div class="opcoes">
-        <button class="opcao" data-alinhar="left">À esquerda</button>
-        <button class="opcao" data-alinhar="justify">Justificado</button>
+        <button class="opcao" data-alinhar="left" data-t="esquerda"></button>
+        <button class="opcao" data-alinhar="justify" data-t="justificado"></button>
       </div>
     </div>
 
-    <button class="botao secundario" id="restaurar">Restaurar padrão</button>
+    <button class="botao secundario" id="restaurar" data-t="restaurar"></button>
   </section>
 
   <div id="aviso" role="status" hidden></div>
 
-  <script src="js/config.js"></script>
   <script src="js/app.js"></script>
   <script src="js/instalar.js"></script>
 </body>
