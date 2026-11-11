@@ -178,3 +178,15 @@ h2.secao { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; co
 /* ---------- aviso ---------- */
 #aviso { position: fixed; left: 50%; bottom: calc(var(--abas) + 16px); transform: translateX(-50%); z-index: 60;
   background: #222; color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 14px; max-width: 90vw; box-shadow: 0 4px 16px rgb(0 0 0 / .3); }
+
+/* Aviso de instalação (Android/iOS) */
+#instalar { position: fixed; left: 12px; right: 12px; bottom: calc(var(--abas) + 12px); z-index: 61;
+  max-width: 460px; margin: 0 auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 12px 14px;
+  background: #222; color: #fff; border-radius: 12px; font-size: 14px; line-height: 1.4; box-shadow: 0 4px 16px rgb(0 0 0 / .35); }
+#instalar .corpo { flex: 1; }
+#instalar strong { display: block; margin-bottom: 2px; }
+#instalar .ic { display: inline-block; vertical-align: -5px; }
+#instalar .ic svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#instalar .ok { background: #fff; color: #9a0007; border: 0; border-radius: 8px; padding: 8px 12px; font: inherit; font-weight: 600; }
+#instalar .x { background: none; border: 0; color: #fff; font-size: 24px; line-height: 1; padding: 4px 10px; }
+body.lendo #instalar { bottom: 12px; }
