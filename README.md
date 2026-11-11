@@ -3,7 +3,7 @@
 Leitor dos textos do [Arquivo Marxista na Internet (português)](https://www.marxists.org/portugues/).
 Esta é a versão **web/PWA** do app Android, para funcionar também no iPhone/iPad.
 
-- `web/` — o app (HTML/CSS/JS puro, sem build). Publicado no GitHub Pages pelo workflow `.github/workflows/pages.yml`.
+- `web/` — o app (HTML/CSS/JS puro, sem build), em **português e inglês** (botão PT/EN no topo; na primeira visita usa o idioma do navegador). Catálogos em `web/data/catalog-pt.json` e `catalog-en.json`. Publicado no GitHub Pages pelo workflow `.github/workflows/pages.yml`.
 - `proxy/` — Cloudflare Worker que libera o acesso aos textos (o site de origem não tem CORS).
 
 ## Publicar

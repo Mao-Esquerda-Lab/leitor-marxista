@@ -1,7 +1,7 @@
 /* Proxy CORS mínimo para o Leitor Marxista (Cloudflare Workers).
- * Só repassa GET para https://www.marxists.org/portugues/... e devolve os bytes originais
+ * Só repassa GET para https://www.marxists.org/... e devolve os bytes originais
  * (o app decodifica UTF-8 / Windows-1252 sozinho) com cabeçalhos CORS. */
-const PERMITIDO = /^https:\/\/www\.marxists\.org\/portugues\//;
+const PERMITIDO = /^https:\/\/www\.marxists\.org\//;
 
 export default {
   async fetch(req) {

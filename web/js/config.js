@@ -11,3 +11,11 @@ window.LM_CONFIG = {
     'https://api.allorigins.win/raw?url={url}',
   ],
 };
+
+/* Idioma: escolha salva (botão PT/EN no topo) ou, na primeira visita, o idioma do navegador. */
+window.APP_CONFIG = (() => {
+  let salvo = null;
+  try { salvo = localStorage.getItem('lm-idioma'); } catch (e) { /* ignora */ }
+  const lang = (salvo === 'pt' || salvo === 'en') ? salvo : (/^en/i.test(navigator.language || '') ? 'en' : 'pt');
+  return { lang };
+})();

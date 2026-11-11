@@ -1,5 +1,6 @@
 /* Aviso (toast) orientando a salvar o site como app: Android (Chrome) e iOS (Safari). */
 (() => {
+  const T = IDIOMAS[APP_CONFIG.lang].t;
   const CHAVE = 'lm.instalar-dispensado';
   const instalado = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
   const ua = navigator.userAgent;
@@ -20,15 +21,15 @@
     const corpo = $c('.corpo');
     const botao = $c('.ok');
     if (ios) {
-      corpo.innerHTML = '<strong>Use como aplicativo</strong>Toque em <span class="ic" aria-label="Compartilhar">' +
-        '<svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg></span> ' +
-        'e depois em <b>Adicionar à Tela de Início</b>.';
+      const ic = '<span class="ic" aria-label="' + T.compartilhar + '">' +
+        '<svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg></span>';
+      corpo.innerHTML = '<strong>' + T.instTitulo + '</strong>' + T.instIos.replace('{ic}', ic);
       botao.hidden = true;
     } else if (evento) {
-      corpo.innerHTML = '<strong>Use como aplicativo</strong>Instale o Leitor Marxista na sua tela inicial.';
+      corpo.innerHTML = '<strong>' + T.instTitulo + '</strong>' + T.instAndroid;
       botao.hidden = false;
     } else {
-      corpo.innerHTML = '<strong>Use como aplicativo</strong>Abra o menu <b>⋮</b> do navegador e toque em <b>Instalar app</b> ou <b>Adicionar à tela inicial</b>.';
+      corpo.innerHTML = '<strong>' + T.instTitulo + '</strong>' + T.instMenu;
       botao.hidden = true;
     }
   }
@@ -37,7 +38,7 @@
   function mostrar() {
     el = document.createElement('div');
     el.id = 'instalar'; el.setAttribute('role', 'status');
-    el.innerHTML = '<div class="corpo"></div><button class="ok" hidden>Instalar</button><button class="x" aria-label="Fechar">×</button>';
+    el.innerHTML = '<div class="corpo"></div><button class="ok" hidden>' + T.instalar + '</button><button class="x" aria-label="' + T.fechar + '">×</button>';
     document.body.appendChild(el);
     atualizar();
     $c('.x').onclick = () => { dispensar(); fechar(); };
